@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hybrid Crypto Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-4">Kriptografi Hybrid (RSA + AES + SHA256) - Kelompok 6</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="alert alert-{{category}}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Encrypt</h5>
+            <form method="post" action="/encrypt">
+              <div class="mb-3">
+                <label for="message" class="form-label">Pesan</label>
+                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+              </div>
+              <button class="btn btn-primary">Encrypt</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Decrypt</h5>
+            <form method="post" action="/decrypt">
+              <div class="mb-3">
+                <label for="ciphertext" class="form-label">Ciphertext (base64)</label>
+                <textarea class="form-control" id="ciphertext" name="ciphertext" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="encrypted_key" class="form-label">Encrypted AES Key (base64)</label>
+                <textarea class="form-control" id="encrypted_key" name="encrypted_key" rows="3"></textarea>
+              </div>
+              <button class="btn btn-success">Decrypt</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Petunjuk</h5>
+            <ol>
+              <li>Masukkan pesan di form Encrypt lalu tekan Encrypt.</li>
+              <li>Salin <code>Ciphertext</code> dan <code>Encrypted AES Key</code> ke form Decrypt.</li>
+              <li>Tekan Decrypt untuk melihat pesan asli dan verifikasi integritas.</li>
+            </ol>
+            <p class="text-muted small">Demo ini menggunakan pasangan kunci RSA yang dihasilkan saat server dijalankan (in-memory).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
