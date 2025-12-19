@@ -22,9 +22,7 @@ How to run (locally):
    pip install -r requirements.txt
 
 3. Run the Flask app
-   export FLASK_APP=app.py
-   export FLASK_ENV=development   # optional
-   flask run --host=0.0.0.0 --port=5000
+   python app.py
 
 4. Open http://127.0.0.1:5000 in your browser
 
