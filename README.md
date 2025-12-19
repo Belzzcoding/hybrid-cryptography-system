@@ -14,15 +14,13 @@ Files included:
 
 How to run (locally):
 1. Create and activate a Python virtual environment (recommended)
-   python -m venv venv
-   source venv/bin/activate   # Linux/macOS
-   venv\Scripts\activate    # Windows (PowerShell)
+   <br>'python -m venv venv'</br>
+   <br>source venv/bin/activate   # Linux/macOS</br>
+   <br>venv\Scripts\activate    # Windows (PowerShell)</br>
 
-2. Install dependencies
-   pip install -r requirements.txt
+2. Install dependencies: 'pip install -r requirements.txt'
 
-3. Run the Flask app
-   python app.py
+3. Run the Flask app: 'python app.py'
 
 4. Open http://127.0.0.1:5000 in your browser
 
